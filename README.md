@@ -1,4 +1,4 @@
-# docker_collectd_prom
+# docker-collectd-prom
 
 Inspired by https://github.com/fr3nd/docker-collectd 
 
