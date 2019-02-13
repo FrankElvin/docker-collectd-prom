@@ -6,6 +6,9 @@ This image is ready to collect host system stats and send them to the `prometheu
 Also here is the configuration file for collectd that contains:
 - enabled plugin `write_prometheus` listening on the non-standard `9105` port
 - enabled percentage of the CPU load in the `cpu` plugin (that's handy!)
+- enabled plugin `exec` in order to use capability of loading STDOUT of shell scripts to the `collectd`:
+	- added user `script_user` which is capable for running shell scripts for `exec`
+	- added folder `/monitoring_scripts` with `script_user` as owner to which external monitoring scripts can be bind-mounted
 - `df` plugin mountpoint redirected to the `/hostfs` folder
 
 ## Usage
@@ -27,6 +30,7 @@ sudo docker run -d --privileged \
 	-v <path to config on disk>:/etc/collectd/collectd.conf \
 	-v /proc:/mnt/proc:ro \
 	-v /:/hostfs:ro \
+	-v <path to monitoring scripts on disk>:/monitoring_scripts \
 	frankelvin/docker_collectd_prom
 ```
 
