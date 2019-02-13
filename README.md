@@ -24,7 +24,7 @@ sudo docker run -d --privileged \
 ```bash
 sudo docker run -d --privileged \
 	-p 9105:9105 \
-	-v <path to config on disc>:/etc/collectd/collectd.conf \
+	-v <path to config on disk>:/etc/collectd/collectd.conf \
 	-v /proc:/mnt/proc:ro \
 	-v /:/hostfs:ro \
 	frankelvin/docker_collectd_prom
